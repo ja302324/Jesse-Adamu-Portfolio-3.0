@@ -67,29 +67,6 @@
     }
 
     .navbar ul li {
-        font-size: clamp(10px, 1.8vw, 0.9rem);
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        border-radius: 20px;
-        width: calc(100% - 20px);
-        padding: 10px 12px;
-        gap: 10px;
-        justify-content: center;
-    }
-
-    .nav-img {
-        margin-right: clamp(8px, 3vw, 24px);
-    }
-
-    .navbar ul {
-        width: 100%;
-        gap: 8px 14px;
-    }
-
-    .navbar ul li {
         font-size: clamp(8px, 1.8vw, 0.9rem);
     }
 }

@@ -1,0 +1,237 @@
+/* ── Page ── */
+.sg-page {
+    background: #000;
+    min-height: 100vh;
+    color: white;
+    font-family: var(--font-body);
+}
+
+/* ── Hero ── */
+.sg-hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: url('../assets/Images/Hero/RenaCoachOfTourney.jpg') center/cover no-repeat;
+}
+
+.sg-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.55) 60%,
+        rgba(0, 0, 0, 0.85) 100%
+    );
+    filter: grayscale(0.6);
+}
+
+/* ── Back link ── */
+.sg-back {
+    position: absolute;
+    top: 28px;
+    left: 32px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    z-index: 2;
+    transition: color 0.2s;
+}
+
+.sg-back:hover {
+    color: white;
+}
+
+/* ── Hero content ── */
+.sg-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.sg-badge {
+    display: inline-block;
+    padding: 6px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.sg-hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* ── Filter ── */
+.sg-filter-wrap {
+    position: absolute;
+    bottom: 48px;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 16px;
+}
+
+.sg-filter {
+    position: relative;
+    display: flex;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 100px;
+    padding: 4px;
+    overflow: hidden;
+}
+
+.sg-filter-indicator {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    height: calc(100% - 8px);
+    background: white;
+    border-radius: 100px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.sg-filter-btn {
+    position: relative;
+    z-index: 1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+    color: rgba(255, 255, 255, 0.65);
+    white-space: nowrap;
+    transition: color 0.3s;
+    letter-spacing: 0.03em;
+}
+
+.sg-filter-btn--active {
+    color: #000;
+}
+
+/* ── Grid ── */
+.sg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    padding: 2px;
+}
+
+.sg-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.sg-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sg-card:hover img {
+    transform: scale(1.05);
+}
+
+.sg-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sg-card:hover .sg-card-overlay {
+    opacity: 1;
+}
+
+.sg-card-meta {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.sg-card:hover .sg-card-meta {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sg-card-title {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.sg-card-year {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.06em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .sg-filter-btn {
+        padding: 9px 12px;
+    }
+
+    .sg-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .sg-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sg-filter {
+        flex-wrap: wrap;
+        border-radius: 20px;
+        justify-content: center;
+    }
+
+    .sg-filter-indicator {
+        display: none;
+    }
+
+    .sg-filter-btn--active {
+        border: 1px solid white;
+        background: white;
+        color: #000;
+    }
+}

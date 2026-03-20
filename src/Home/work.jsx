@@ -2,6 +2,9 @@
 
 import { motion, useScroll, useTransform } from "motion/react"
 import { useEffect, useRef, useState } from "react"
+import { Link } from "react-router-dom"
+
+const MotionLink = motion(Link)
 import "../css/work.css"
 import PromiseDesign from "../assets/Images/Portfolio/PromiseDesign.jpg"
 import SammyBirthday from "../assets/Images/Portfolio/SammyBirthday.jpg"
@@ -17,8 +20,8 @@ function WorkCard({ item, index, total, scrollYProgress }) {
     const scale = useTransform(scrollYProgress, [start, peak], [0.96, 1])
 
     return (
-        <motion.a
-            href={item.href}
+        <MotionLink
+            to={item.href}
             className="hs-card"
             style={{ opacity, y, scale }}
             aria-label={`Open ${item.title}`}
@@ -30,21 +33,21 @@ function WorkCard({ item, index, total, scrollYProgress }) {
                 <span className="hs-pill">{item.tag}</span>
             </div>
             <span className="hs-card-cta">View Work</span>
-        </motion.a>
+        </MotionLink>
     )
 }
 
-export default function ScrollHorizontal() {
+export default function Work() {
     const containerRef = useRef(null)
-    const [isMobile, setIsMobile] = useState(false)
+    const [isMobile, setIsMobile] = useState(
+        () => window.matchMedia("(max-width: 768px)").matches
+    )
 
     useEffect(() => {
         const mq = window.matchMedia("(max-width: 768px)")
         const onChange = event => setIsMobile(event.matches)
 
-        setIsMobile(mq.matches)
         mq.addEventListener("change", onChange)
-
         return () => mq.removeEventListener("change", onChange)
     }, [])
 
