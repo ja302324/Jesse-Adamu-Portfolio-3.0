@@ -1,15 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import { Link } from "react-router-dom"
 import "../css/SportGraphics.css"
-
-import RenaCoachOfTourney from "../assets/Images/Hero/RenaCoachOfTourney.jpg"
-import JoshIsBack from "../assets/Images/Hero/JoshIsBack.jpg"
-import Front from "../assets/Images/Hero/Front.jpg"
-import Artboard1 from "../assets/Images/Hero/Artboard1.jpg"
-import PromiseCanvas from "../assets/Images/Hero/PromiseCanvas.jpg"
-import Independance65 from "../assets/Images/Hero/Independance65.jpg"
-import PromiseDesign from "../assets/Images/Portfolio/PromiseDesign.jpg"
-import SammyBirthday from "../assets/Images/Portfolio/SammyBirthday.jpg"
+import { projects } from "../data/sportGraphics"
 
 const categories = [
     { id: "all", label: "All" },
@@ -17,17 +9,6 @@ const categories = [
     { id: "team-graphic", label: "Team Graphic" },
     { id: "gameday-design", label: "Gameday Design" },
     { id: "championship-art", label: "Championship Art" },
-]
-
-const projects = [
-    { id: 1, title: "Josh Is Back", year: "2025", category: "player-feature", image: JoshIsBack },
-    { id: 2, title: "Front", year: "2025", category: "player-feature", image: Front },
-    { id: 3, title: "Rena – Coach of Tourney", year: "2025", category: "team-graphic", image: RenaCoachOfTourney },
-    { id: 4, title: "Artboard Series", year: "2025", category: "team-graphic", image: Artboard1 },
-    { id: 5, title: "Promise Canvas", year: "2025", category: "gameday-design", image: PromiseCanvas },
-    { id: 6, title: "Promise Design", year: "2025", category: "gameday-design", image: PromiseDesign },
-    { id: 7, title: "Independence 65", year: "2025", category: "championship-art", image: Independance65 },
-    { id: 8, title: "Sammy Birthday", year: "2025", category: "championship-art", image: SammyBirthday },
 ]
 
 export default function SportGraphics() {
