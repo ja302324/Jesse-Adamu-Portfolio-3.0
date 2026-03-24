@@ -37,18 +37,22 @@ function WorkCard({ item, index, total, scrollYProgress }) {
     )
 }
 
+function getCardDims() {
+    const w = window.innerWidth
+    if (w <= 480)  return { cardWidth: 200, gap: 14 }
+    if (w <= 768)  return { cardWidth: 240, gap: 16 }
+    if (w <= 1080) return { cardWidth: 260, gap: 20 }
+    return { cardWidth: 280, gap: 24 }
+}
+
 export default function Work() {
     const containerRef = useRef(null)
-    const [isMobile, setIsMobile] = useState(
-        () => window.matchMedia("(max-width: 768px)").matches
-    )
+    const [dims, setDims] = useState(getCardDims)
 
     useEffect(() => {
-        const mq = window.matchMedia("(max-width: 768px)")
-        const onChange = event => setIsMobile(event.matches)
-
-        mq.addEventListener("change", onChange)
-        return () => mq.removeEventListener("change", onChange)
+        const handler = () => setDims(getCardDims())
+        window.addEventListener("resize", handler)
+        return () => window.removeEventListener("resize", handler)
     }, [])
 
     const { scrollYProgress } = useScroll({
@@ -57,14 +61,12 @@ export default function Work() {
     })
 
     const items = [
-        { id: 1, title: "Sport Graphics", tag: "2026", image: PromiseDesign, href: "/projects/sport-graphics" },
-        { id: 2, title: "Personal Graphics", tag: "2026", image: SammyBirthday, href: "/projects/personal-graphics" },
-        { id: 3, title: "Brand Design", tag: "2026", image: NXTGENlogo, href: "/projects/brand-design" },
+        { id: 1, title: "Sport Graphics",    tag: "2026", image: PromiseDesign,  href: "/projects/sport-graphics" },
+        { id: 2, title: "Personal Graphics", tag: "2026", image: SammyBirthday,  href: "/projects/personal-graphics" },
+        { id: 3, title: "Brand Design",      tag: "2026", image: NXTGENlogo,     href: "/projects/brand-design" },
     ]
 
-    const CARD_WIDTH = 280
-    const GAP = 24
-    const totalDistance = (items.length - 1) * (CARD_WIDTH + GAP)
+    const totalDistance = (items.length - 1) * (dims.cardWidth + dims.gap)
     const x = useTransform(scrollYProgress, [0, 1], [0, -totalDistance])
 
     return (
@@ -80,7 +82,7 @@ export default function Work() {
                     </aside>
 
                     <div className="hs-right">
-                        <motion.div className="hs-track" style={isMobile ? undefined : { x }}>
+                        <motion.div className="hs-track" style={{ x }}>
                             {items.map((item, index) => (
                                 <WorkCard
                                     key={item.id}
