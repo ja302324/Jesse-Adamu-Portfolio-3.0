@@ -8,8 +8,53 @@ const categories = [
     { id: "player-feature", label: "Player Feature" },
     { id: "team-graphic", label: "Team Graphic" },
     { id: "gameday-design", label: "Gameday Design" },
-    { id: "championship-art", label: "Championship Art" },
+    { id: "collage-art", label: "Collage Art" },
 ]
+
+function CarouselCard({ project }) {
+    const [index, setIndex] = useState(0)
+    const total = project.images.length
+
+    const prev = (e) => {
+        e.stopPropagation()
+        setIndex(i => (i - 1 + total) % total)
+    }
+    const next = (e) => {
+        e.stopPropagation()
+        setIndex(i => (i + 1) % total)
+    }
+
+    return (
+        <div className="sg-card sg-card--carousel">
+            <img src={project.images[index]} alt={`${project.title} ${index + 1}`} />
+            <div className="sg-card-overlay" />
+            <button className="sg-carousel-btn sg-carousel-btn--prev" onClick={prev} aria-label="Previous">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M10 3L5 8L10 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+            </button>
+            <button className="sg-carousel-btn sg-carousel-btn--next" onClick={next} aria-label="Next">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M6 3L11 8L6 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+            </button>
+            <div className="sg-carousel-dots">
+                {project.images.map((_, i) => (
+                    <button
+                        key={i}
+                        className={`sg-carousel-dot ${i === index ? "sg-carousel-dot--active" : ""}`}
+                        onClick={(e) => { e.stopPropagation(); setIndex(i) }}
+                        aria-label={`Go to image ${i + 1}`}
+                    />
+                ))}
+            </div>
+            <div className="sg-card-meta">
+                <span className="sg-card-title">{project.title}</span>
+                <span className="sg-card-year">{project.year}</span>
+            </div>
+        </div>
+    )
+}
 
 export default function SportGraphics() {
     const [active, setActive] = useState("all")
@@ -70,14 +115,18 @@ export default function SportGraphics() {
 
             <div className="sg-grid">
                 {filtered.map(project => (
-                    <div key={project.id} className="sg-card">
-                        <img src={project.image} alt={project.title} />
-                        <div className="sg-card-overlay" />
-                        <div className="sg-card-meta">
-                            <span className="sg-card-title">{project.title}</span>
-                            <span className="sg-card-year">{project.year}</span>
-                        </div>
-                    </div>
+                    project.carousel
+                        ? <CarouselCard key={project.id} project={project} />
+                        : (
+                            <div key={project.id} className="sg-card">
+                                <img src={project.image} alt={project.title} />
+                                <div className="sg-card-overlay" />
+                                <div className="sg-card-meta">
+                                    <span className="sg-card-title">{project.title}</span>
+                                    <span className="sg-card-year">{project.year}</span>
+                                </div>
+                            </div>
+                        )
                 ))}
             </div>
         </div>

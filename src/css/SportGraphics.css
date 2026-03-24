@@ -203,6 +203,73 @@
     letter-spacing: 0.06em;
 }
 
+/* ── Carousel ── */
+.sg-card--carousel {
+    position: relative;
+}
+
+.sg-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s, background 0.2s;
+}
+
+.sg-card--carousel:hover .sg-carousel-btn {
+    opacity: 1;
+}
+
+.sg-carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.sg-carousel-btn--prev { left: 12px; }
+.sg-carousel-btn--next { right: 12px; }
+
+.sg-carousel-dots {
+    position: absolute;
+    bottom: 48px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.sg-card--carousel:hover .sg-carousel-dots {
+    opacity: 1;
+}
+
+.sg-carousel-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.sg-carousel-dot--active {
+    background: white;
+    transform: scale(1.3);
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
     .sg-filter-btn {

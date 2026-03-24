@@ -42,6 +42,32 @@ export const projects = [
     { id: 34, title: "Round of 16 – U19 WC 2025 Women",       category: "gameday-design", year: "2025", image: "/images/sport-graphics/gameday-design/round-of-16-u19wc-2025-women.jpg" },
     { id: 35, title: "Semi Finals – Afrobasket 2025 Women",    category: "gameday-design", year: "2025", image: "/images/sport-graphics/gameday-design/semi-finals-afrobasket-2025-women.jpg" },
 
-    // Championship Art — add entries here when folder is filled
-    // { id: 19, title: "", category: "championship-art", year: "2025", image: "/images/sport-graphics/championship-art/filename.jpg" },
+    // Collage Art
+    { id: 36, title: "5 Times Champions",              category: "collage-art", year: "2025", image: "/images/sport-graphics/collage-art/5-times-champions.jpg" },
+    { id: 37, title: "Afrobasket Champions",           category: "collage-art", year: "2025", image: "/images/sport-graphics/collage-art/afrobasket-champions.jpg" },
+    { id: 38, title: "Thank You Sarah Ogoke",          category: "collage-art", year: "2025", image: "/images/sport-graphics/collage-art/thank-you-sarah-ogoke.jpg" },
+    { id: 39, title: "U19 World Championship",         category: "collage-art", year: "2025", image: "/images/sport-graphics/collage-art/u19-worldchampionship-thankyou.jpg" },
+    { id: 40, title: "Happy Independence 65 Years",    category: "collage-art", year: "2025", image: "/images/sport-graphics/collage-art/HAPPY-INDEPENDANCE-65-YEARS.jpg" },
+    { id: 41, title: "IWD – NBBF",                     category: "collage-art", year: "2025", image: "/images/sport-graphics/collage-art/IWD-NBBF.jpg" },
+
+    // Team Graphic
+    { id: 42, title: "2025 Christmas",                 category: "team-graphic", year: "2025", image: "/images/sport-graphics/team-graphic/2025-xmas.jpg" },
+    { id: 43, title: "NT Men New Year",                category: "team-graphic", year: "2025", image: "/images/sport-graphics/team-graphic/NT-MEN-NEW-YEAR.jpg" },
+    { id: 44, title: "NT Women New Year",              category: "team-graphic", year: "2025", image: "/images/sport-graphics/team-graphic/NT-WOMEN-NEW-YEAR.jpg" },
+    { id: 45, title: "Starters vs Turkey Friendlies",  category: "team-graphic", year: "2025", image: "/images/sport-graphics/team-graphic/Starters-vs-turkey-friendlies.jpg" },
+    { id: 46, title: "XE Jet Promo Flyer",             category: "team-graphic", year: "2025", image: "/images/sport-graphics/team-graphic/XE-JET-PROMO-FLYER.jpg" },
+    {
+        id: 47,
+        title: "Artboard Series",
+        category: "team-graphic",
+        year: "2025",
+        carousel: true,
+        images: [
+            "/images/sport-graphics/team-graphic/Artboard%201.jpg",
+            "/images/sport-graphics/team-graphic/Artboard%202.png",
+            "/images/sport-graphics/team-graphic/Artboard%203.png",
+            "/images/sport-graphics/team-graphic/Artboard%204.png",
+            "/images/sport-graphics/team-graphic/Artboard%205.png",
+        ],
+    },
 ]
