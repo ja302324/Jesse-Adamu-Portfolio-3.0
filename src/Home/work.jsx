@@ -39,7 +39,7 @@ function WorkCard({ item, index, total, scrollYProgress }) {
 
 function getCardDims() {
     const w = window.innerWidth
-    if (w <= 480)  return { cardWidth: 200, gap: 14 }
+    if (w <= 480)  return { cardWidth: Math.min(w * 0.72, 260), gap: 14 }
     if (w <= 768)  return { cardWidth: 240, gap: 16 }
     if (w <= 1080) return { cardWidth: 260, gap: 20 }
     return { cardWidth: 280, gap: 24 }
