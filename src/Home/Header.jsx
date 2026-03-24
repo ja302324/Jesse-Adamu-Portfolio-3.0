@@ -18,7 +18,7 @@ const Header = () => {
         <>
             {/* Desktop + mobile pill bar */}
             <div className="navbar">
-                <img className="nav-img" src={logo} alt="Jesse Adamu logo" />
+                <a href="#home-section"><img className="nav-img" src={logo} alt="Jesse Adamu logo" /></a>
 
                 <ul className="nav-menu">
                     <li><a href="#home-section">Home</a></li>
