@@ -60,10 +60,9 @@ export default function Work() {
         { id: 1, title: "Sport Graphics", tag: "2026", image: PromiseDesign, href: "/projects/sport-graphics" },
         { id: 2, title: "Personal Graphics", tag: "2026", image: SammyBirthday, href: "/projects/personal-graphics" },
         { id: 3, title: "Brand Design", tag: "2026", image: NXTGENlogo, href: "/projects/brand-design" },
-        { id: 4, title: "Campaign", tag: "2025", image: PromiseDesign, href: "/projects/campaign" },
     ]
 
-    const CARD_WIDTH = 320
+    const CARD_WIDTH = 280
     const GAP = 24
     const totalDistance = (items.length - 1) * (CARD_WIDTH + GAP)
     const x = useTransform(scrollYProgress, [0, 1], [0, -totalDistance])

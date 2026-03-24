@@ -51,6 +51,7 @@ export const projects = [
     { id: 41, title: "IWD – NBBF",                     category: "collage-art", year: "2025", image: "/images/sport-graphics/collage-art/IWD-NBBF.jpg" },
 
     // Team Graphic
+    { id: 48, title: "Nigeria vs LA Sparks Friendly",  category: "team-graphic", year: "2025", image: "/images/sport-graphics/team-graphic/nigeria-vs-la-sparks-friendly.jpg" },
     { id: 42, title: "2025 Christmas",                 category: "team-graphic", year: "2025", image: "/images/sport-graphics/team-graphic/2025-xmas.jpg" },
     { id: 43, title: "NT Men New Year",                category: "team-graphic", year: "2025", image: "/images/sport-graphics/team-graphic/NT-MEN-NEW-YEAR.jpg" },
     { id: 44, title: "NT Women New Year",              category: "team-graphic", year: "2025", image: "/images/sport-graphics/team-graphic/NT-WOMEN-NEW-YEAR.jpg" },
